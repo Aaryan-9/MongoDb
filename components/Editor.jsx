@@ -4,7 +4,6 @@ import {
   tomorrow,
   prism,
 } from "react-syntax-highlighter/dist/esm/styles/prism";
-import { sqlKeywords } from "../utils/sqlKeywords";
 import { useTheme } from "../context/ThemeContext";
 import "../styles/editor.css";
 
