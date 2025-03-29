@@ -1,0 +1,242 @@
+.editor-container {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background-color: var(--background);
+  overflow: hidden;
+  box-shadow: var(--shadow-md);
+  transition: box-shadow 0.3s ease;
+}
+
+.editor-container:hover {
+  box-shadow: var(--shadow-lg);
+}
+
+.editor-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid var(--border);
+  background-color: var(--secondary);
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.editor-header h3 {
+  margin: 0;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--foreground);
+}
+
+.editor-actions {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.editor-wrapper {
+  position: relative;
+  height: 200px;
+  overflow: hidden;
+}
+
+.editor-textarea {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  padding: 1rem;
+  font-family: "Menlo", "Monaco", "Courier New", monospace;
+  font-size: 0.875rem;
+  line-height: 1.5;
+  color: transparent;
+  background-color: transparent;
+  caret-color: var(--foreground);
+  border: none;
+  resize: none;
+  outline: none;
+  z-index: 2;
+}
+
+.syntax-highlighter {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  padding: 1rem;
+  font-family: "Menlo", "Monaco", "Courier New", monospace;
+  font-size: 0.875rem;
+  line-height: 1.5;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.syntax-highlighter pre {
+  margin: 0 !important;
+  background-color: transparent !important;
+}
+
+.editor-footer {
+  padding: 0.5rem 1rem;
+  border-top: 1px solid var(--border);
+  background-color: var(--secondary);
+  font-size: 0.75rem;
+  color: var(--muted-foreground);
+}
+
+.suggestions-container {
+  position: absolute;
+  z-index: 10;
+  background-color: var(--background);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-lg);
+  max-height: 150px;
+  overflow-y: auto;
+  width: 200px;
+}
+
+.suggestion-item {
+  padding: 0.5rem;
+  cursor: pointer;
+  font-family: "Menlo", "Monaco", "Courier New", monospace;
+  font-size: 0.875rem;
+  transition: background-color 0.2s;
+}
+
+.suggestion-item:hover {
+  background-color: var(--accent);
+}
+
+.execute-button,
+.save-button {
+  padding: 0.5rem 1rem;
+  border-radius: var(--radius);
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+  border: none;
+  display: flex;
+  align-items: center;
+}
+
+.execute-button {
+  background-color: var(--primary);
+  color: var(--primary-foreground);
+}
+
+.execute-button:hover {
+  filter: brightness(1.1);
+  transform: translateY(-1px);
+}
+
+.execute-button:active {
+  transform: translateY(0);
+}
+
+.execute-button:disabled {
+  background-color: var(--muted-background);
+  color: var(--muted-foreground);
+  cursor: not-allowed;
+  transform: none;
+}
+
+.save-button {
+  background-color: var(--secondary);
+  color: var(--secondary-foreground);
+  border: 1px solid var(--border);
+}
+
+.save-button:hover {
+  background-color: var(--accent);
+  transform: translateY(-1px);
+}
+
+.save-button:active {
+  transform: translateY(0);
+}
+
+.editor-tooltip {
+  font-size: 0.75rem;
+  color: var(--muted-foreground);
+  display: flex;
+  align-items: center;
+}
+
+.tooltip-icon {
+  margin-right: 0.25rem;
+}
+
+/* Add styles for the predefined queries selector in the editor */
+.predefined-queries {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-right: 1rem;
+}
+
+.query-select {
+  padding: 0.5rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background-color: var(--background);
+  color: var(--foreground);
+  font-size: 0.875rem;
+  min-width: 200px;
+  cursor: pointer;
+  transition: border-color 0.2s;
+}
+
+.query-select:focus {
+  border-color: var(--primary);
+  outline: none;
+}
+
+@media (max-width: 768px) {
+  .editor-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .predefined-queries {
+    width: 100%;
+    margin-bottom: 0.5rem;
+  }
+
+  .query-select {
+    width: 100%;
+  }
+
+  .editor-actions {
+    width: 100%;
+    justify-content: flex-end;
+  }
+
+  .editor-wrapper {
+    height: 150px; /* Reduce height on mobile */
+  }
+}
+
+/* Add additional styles for very small screens */
+@media (max-width: 480px) {
+  .editor-wrapper {
+    height: 120px; /* Further reduce height on very small screens */
+  }
+
+  .editor-actions {
+    flex-wrap: wrap;
+    gap: 0.25rem;
+  }
+
+  .execute-button,
+  .save-button {
+    padding: 0.4rem 0.75rem;
+    font-size: 0.8rem;
+  }
+}

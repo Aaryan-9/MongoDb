@@ -1,0 +1,232 @@
+.results-container {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background-color: var(--background);
+  overflow: hidden;
+  flex: 1;
+  box-shadow: var(--shadow-md);
+  transition: box-shadow 0.3s ease;
+}
+
+.results-container:hover {
+  box-shadow: var(--shadow-lg);
+}
+
+.results-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid var(--border);
+  background-color: var(--secondary);
+}
+
+.results-header h3 {
+  margin: 0;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--foreground);
+}
+
+.results-meta {
+  font-size: 0.875rem;
+  color: var(--muted-foreground);
+}
+
+.table-wrapper {
+  overflow: auto;
+  flex: 1;
+}
+
+.results-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.875rem;
+}
+
+.results-table th {
+  position: sticky;
+  top: 0;
+  background-color: var(--secondary);
+  padding: 0.75rem 1rem;
+  text-align: left;
+  font-weight: 600;
+  border-bottom: 1px solid var(--border);
+  cursor: pointer;
+  user-select: none;
+  z-index: 1;
+  transition: background-color 0.2s;
+}
+
+.results-table th:hover {
+  background-color: var(--accent);
+}
+
+.th-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.sort-indicator {
+  margin-left: 0.25rem;
+  color: var(--primary);
+}
+
+.filter-container {
+  padding-top: 0.5rem;
+}
+
+.filter-input {
+  width: 100%;
+  padding: 0.25rem 0.5rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  font-size: 0.75rem;
+  background-color: var(--background);
+  color: var(--foreground);
+  transition: border-color 0.2s;
+}
+
+.filter-input:focus {
+  border-color: var(--primary);
+  outline: none;
+}
+
+.results-table td {
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid var(--border);
+  white-space: nowrap;
+  transition: background-color 0.2s;
+}
+
+.results-table tr:hover td {
+  background-color: var(--accent);
+}
+
+.row-even {
+  background-color: var(--background);
+}
+
+.row-odd {
+  background-color: var(--secondary);
+}
+
+.no-results {
+  padding: 2rem;
+  text-align: center;
+  color: var(--muted-foreground);
+}
+
+.results-loading {
+  padding: 2rem;
+  text-align: center;
+  color: var(--muted-foreground);
+  font-style: italic;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+.pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.75rem 1rem;
+  border-top: 1px solid var(--border);
+  gap: 0.5rem;
+  background-color: var(--secondary);
+}
+
+.pagination-button {
+  padding: 0.25rem 0.5rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background-color: var(--background);
+  color: var(--foreground);
+  font-size: 0.75rem;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.pagination-button:hover:not(:disabled) {
+  background-color: var(--accent);
+  transform: translateY(-1px);
+}
+
+.pagination-button:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+.pagination-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.page-info {
+  font-size: 0.75rem;
+  color: var(--muted-foreground);
+  padding: 0 0.5rem;
+}
+
+.rows-per-page {
+  padding: 0.25rem 0.5rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background-color: var(--background);
+  color: var(--foreground);
+  font-size: 0.75rem;
+  cursor: pointer;
+}
+
+.rows-per-page:focus {
+  border-color: var(--primary);
+  outline: none;
+}
+
+/* Add responsive styles for the results table */
+@media (max-width: 768px) {
+  .results-container {
+    min-height: 250px; /* Ensure minimum height on mobile */
+    max-height: none; /* Allow it to grow as needed */
+  }
+
+  .results-header {
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .table-wrapper {
+    overflow-x: auto; /* Ensure horizontal scrolling works */
+  }
+
+  .pagination {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.25rem;
+  }
+}
+
+/* Add additional styles for very small screens */
+@media (max-width: 480px) {
+  .results-header h3 {
+    font-size: 0.9rem;
+  }
+
+  .results-meta {
+    font-size: 0.75rem;
+  }
+
+  .pagination-button {
+    padding: 0.2rem 0.4rem;
+    font-size: 0.7rem;
+  }
+
+  .page-info {
+    font-size: 0.7rem;
+  }
+}
