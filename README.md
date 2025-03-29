@@ -31,6 +31,8 @@ This SQL Query Editor application allows users to run SQL queries and view the r
 
 ## Load Time
 
+- 550ms
+
 ## Performance Measurement
 
 - Load time was measured using the Network tab in browser developer tools
