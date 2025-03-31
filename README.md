@@ -30,8 +30,8 @@ This SQL Query Editor application allows users to run SQL queries and view the r
 - Vite (v6.2.0) - For fast development and optimized builds
 
 ## Load Time
-
-- 550ms
+- Initial: 930ms
+- Re-render: 550ms
 
 ## Performance Measurement
 
