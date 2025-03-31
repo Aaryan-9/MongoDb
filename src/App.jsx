@@ -1,14 +1,14 @@
 import { useState, useEffect } from "react";
-import Editor from "../components/Editor";
-import ResultsTable from "../components/ResultsTable";
-import QueryHistory from "../components/QueryHistory";
-import Navbar from "../components/Navbar";
-import SavedQueries from "../components/SavedQueries";
-import { predefinedQueries } from "../data/predefinedQueries";
-import { executeQuery } from "../utils/queryExecutor";
-import { exportData } from "../utils/exportUtil";
-import { ThemeProvider } from "../context/ThemeContext";
-import "../styles/globals.css";
+import Editor from "./components/Editor";
+import ResultsTable from "./components/ResultsTable";
+import QueryHistory from "./components/QueryHistory";
+import Navbar from "./components/Navbar";
+import SavedQueries from "./components/SavedQueries";
+import { predefinedQueries } from "./data/predefinedQueries";
+import { executeQuery } from "./utils/queryExecutor";
+import { exportData } from "./utils/exportUtil";
+import { ThemeProvider } from "./context/ThemeContext";
+import "./styles/globals.css";
 
 export default function SQLQueryApp() {
   const [currentQuery, setCurrentQuery] = useState("");
